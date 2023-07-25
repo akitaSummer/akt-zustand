@@ -19,7 +19,12 @@ const useBearState = create<BearState>((set) => ({
 }));
 
 function App() {
-  const { bears, increase, decrease, reset } = useBearState();
+  const { increase, reset } = useBearState();
+
+  const { bears, decrease } = useBearState((state) => ({
+    bears: state.bears,
+    decrease: state.decrease,
+  }));
 
   return (
     <>
